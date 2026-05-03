@@ -1,0 +1,11 @@
+{
+  "resourceType": "MedicationRequest",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "text": "albuterol 0.09 MG/ACTUAT [Proventil]"
+  },
+  "subject": {
+    "reference": "Patient/1000"
+  }
+}

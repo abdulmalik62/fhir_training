@@ -1,0 +1,419 @@
+{
+  "info": {
+    "_postman_id": "fb88f209-eedc-4d09-ad75-b9d99e88e976",
+    "name": "Neantix",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53874434",
+    "_collection_link": "https://go.postman.co/collection/53874434-fb88f209-eedc-4d09-ad75-b9d99e88e976?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Bundle",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"resourceType\": \"Bundle\",\r\n  \"type\": \"transaction\",\r\n  \"entry\": [\r\n\r\n    {\r\n      \"fullUrl\": \"urn:uuid:patient-1\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Patient\",\r\n        \"name\": [\r\n          {\r\n            \"family\": \"Malik\",\r\n            \"given\": [\"Abdul\"]\r\n          }\r\n        ],\r\n        \"gender\": \"male\",\r\n        \"birthDate\": \"2000-01-01\"\r\n      },\r\n      \"request\": {\r\n        \"method\": \"POST\",\r\n        \"url\": \"Patient\"\r\n      }\r\n    },\r\n\r\n    {\r\n      \"fullUrl\": \"urn:uuid:encounter-1\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Encounter\",\r\n        \"status\": \"finished\",\r\n        \"class\": {\r\n          \"code\": \"AMB\"\r\n        },\r\n        \"subject\": {\r\n          \"reference\": \"urn:uuid:patient-1\"\r\n        }\r\n      },\r\n      \"request\": {\r\n        \"method\": \"POST\",\r\n        \"url\": \"Encounter\"\r\n      }\r\n    },\r\n\r\n    {\r\n      \"fullUrl\": \"urn:uuid:condition-1\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Condition\",\r\n        \"code\": {\r\n          \"text\": \"Hypertension\"\r\n        },\r\n        \"subject\": {\r\n          \"reference\": \"urn:uuid:patient-1\"\r\n        },\r\n        \"encounter\": {\r\n          \"reference\": \"urn:uuid:encounter-1\"\r\n        }\r\n      },\r\n      \"request\": {\r\n        \"method\": \"POST\",\r\n        \"url\": \"Condition\"\r\n      }\r\n    },\r\n\r\n    {\r\n      \"fullUrl\": \"urn:uuid:condition-2\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Condition\",\r\n        \"code\": {\r\n          \"text\": \"Fever\"\r\n        },\r\n        \"subject\": {\r\n          \"reference\": \"urn:uuid:patient-1\"\r\n        },\r\n        \"encounter\": {\r\n          \"reference\": \"urn:uuid:encounter-1\"\r\n        }\r\n      },\r\n      \"request\": {\r\n        \"method\": \"POST\",\r\n        \"url\": \"Condition\"\r\n      }\r\n    },\r\n\r\n    {\r\n      \"fullUrl\": \"urn:uuid:observation-1\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Observation\",\r\n        \"status\": \"final\",\r\n        \"code\": {\r\n          \"text\": \"Blood Pressure\"\r\n        },\r\n        \"valueQuantity\": {\r\n          \"value\": 120,\r\n          \"unit\": \"mmHg\"\r\n        },\r\n        \"subject\": {\r\n          \"reference\": \"urn:uuid:patient-1\"\r\n        },\r\n        \"encounter\": {\r\n          \"reference\": \"urn:uuid:encounter-1\"\r\n        }\r\n      },\r\n      \"request\": {\r\n        \"method\": \"POST\",\r\n        \"url\": \"Observation\"\r\n      }\r\n    },\r\n\r\n    {\r\n      \"fullUrl\": \"urn:uuid:observation-2\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Observation\",\r\n        \"status\": \"final\",\r\n        \"code\": {\r\n          \"text\": \"Heart Rate\"\r\n        },\r\n        \"valueQuantity\": {\r\n          \"value\": 72,\r\n          \"unit\": \"beats/min\"\r\n        },\r\n        \"subject\": {\r\n          \"reference\": \"urn:uuid:patient-1\"\r\n        },\r\n        \"encounter\": {\r\n          \"reference\": \"urn:uuid:encounter-1\"\r\n        }\r\n      },\r\n      \"request\": {\r\n        \"method\": \"POST\",\r\n        \"url\": \"Observation\"\r\n      }\r\n    },\r\n\r\n    {\r\n      \"fullUrl\": \"urn:uuid:observation-3\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Observation\",\r\n        \"status\": \"final\",\r\n        \"code\": {\r\n          \"text\": \"Temperature\"\r\n        },\r\n        \"valueQuantity\": {\r\n          \"value\": 98.6,\r\n          \"unit\": \"F\"\r\n        },\r\n        \"subject\": {\r\n          \"reference\": \"urn:uuid:patient-1\"\r\n        },\r\n        \"encounter\": {\r\n          \"reference\": \"urn:uuid:encounter-1\"\r\n        }\r\n      },\r\n      \"request\": {\r\n        \"method\": \"POST\",\r\n        \"url\": \"Observation\"\r\n      }\r\n    },\r\n\r\n    {\r\n      \"fullUrl\": \"urn:uuid:medication-1\",\r\n      \"resource\": {\r\n        \"resourceType\": \"MedicationRequest\",\r\n        \"status\": \"active\",\r\n        \"intent\": \"order\",\r\n        \"medicationCodeableConcept\": {\r\n          \"text\": \"Paracetamol\"\r\n        },\r\n        \"subject\": {\r\n          \"reference\": \"urn:uuid:patient-1\"\r\n        },\r\n        \"encounter\": {\r\n          \"reference\": \"urn:uuid:encounter-1\"\r\n        }\r\n      },\r\n      \"request\": {\r\n        \"method\": \"POST\",\r\n        \"url\": \"MedicationRequest\"\r\n      }\r\n    }\r\n\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/fhir",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "fhir"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Organization",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"resourceType\": \"Organization\",\r\n  \"name\": \"ABC Hospital\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/fhir/Organization",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "fhir",
+            "Organization"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add a Patient",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"resourceType\": \"Patient\",\r\n  \"identifier\": [\r\n    {\r\n      \"system\": \"http://hospital.org/mrn\",\r\n      \"value\": \"MRN12345\"\r\n    }\r\n  ],\r\n  \"name\": [\r\n    {\r\n      \"family\": \"Habill\",\r\n      \"given\": [\"Abdul\"]\r\n    }\r\n  ],\r\n  \"gender\": \"male\",\r\n  \"managingOrganization\": {\r\n    \"reference\": \"Organization/1001\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/fhir/Patient",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "fhir",
+            "Patient"
+          ],
+          "query": [
+            {
+              "key": "_pretty",
+              "value": "true",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Patients",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/fhir/Patient?_pretty=true",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "fhir",
+            "Patient"
+          ],
+          "query": [
+            {
+              "key": "_pretty",
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Pateint By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/fhir/Patient/1002?_pretty=true",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "fhir",
+            "Patient",
+            "1002"
+          ],
+          "query": [
+            {
+              "key": "_pretty",
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Pateint by Family Name",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/fhir/Patient?_pretty=true&family=Malik",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "fhir",
+            "Patient"
+          ],
+          "query": [
+            {
+              "key": "_pretty",
+              "value": "true"
+            },
+            {
+              "key": "family",
+              "value": "Malik"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Include Patient Organization",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/fhir/Patient?_pretty=true&_include=Patient:organization",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "fhir",
+            "Patient"
+          ],
+          "query": [
+            {
+              "key": "_pretty",
+              "value": "true"
+            },
+            {
+              "key": "_include",
+              "value": "Patient:organization"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search by Missing Data",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/fhir/Patient?gender:missing=true",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "fhir",
+            "Patient"
+          ],
+          "query": [
+            {
+              "key": "gender:missing",
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search By Givem Name",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/fhir/Patient?given=Abdul",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "fhir",
+            "Patient"
+          ],
+          "query": [
+            {
+              "key": "given",
+              "value": "Abdul"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Patient by Gender",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/fhir/Patient?gender=male",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "fhir",
+            "Patient"
+          ],
+          "query": [
+            {
+              "key": "gender",
+              "value": "male"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Patient by Identifier (MRN)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/fhir/Patient?identifier=MRN12345",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "fhir",
+            "Patient"
+          ],
+          "query": [
+            {
+              "key": "identifier",
+              "value": "MRN12345"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Reverse Include (_revinclude)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/fhir/Organization?_revinclude=Patient:organization",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "fhir",
+            "Organization"
+          ],
+          "query": [
+            {
+              "key": "_revinclude",
+              "value": "Patient:organization"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Patient with Multiple Filters",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/fhir/Patient?family=Malik&gender=male",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "fhir",
+            "Patient"
+          ],
+          "query": [
+            {
+              "key": "family",
+              "value": "Malik"
+            },
+            {
+              "key": "gender",
+              "value": "male"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Patient",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"resourceType\": \"Patient\",\r\n  \"id\": \"1000\",\r\n  \"name\": [\r\n    {\r\n      \"family\": \"Malik\",\r\n      \"given\": [\"Abdul\"]\r\n    }\r\n  ],\r\n  \"gender\": \"male\",\r\n  \"managingOrganization\": {\r\n    \"reference\": \"Organization/1001\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/fhir/Patient/1000?_pretty=true",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "fhir",
+            "Patient",
+            "1000"
+          ],
+          "query": [
+            {
+              "key": "_pretty",
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

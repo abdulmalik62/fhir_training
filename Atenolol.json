@@ -1,0 +1,11 @@
+{
+  "resourceType": "MedicationRequest",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "text": "atenolol 25 MG Oral Tablet"
+  },
+  "subject": {
+    "reference": "Patient/1000"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "resourceType": "Condition",
+  "clinicalStatus": {
+    "text": "active"
+  },
+  "code": {
+    "text": "Pneumonia"
+  },
+  "bodySite": [
+    {
+      "text": "Left lower lobe of lung"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/1000"
+  }
+}
