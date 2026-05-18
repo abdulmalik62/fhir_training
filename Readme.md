@@ -35,12 +35,12 @@ This repository contains onboarding work focused on healthcare data interoperabi
 
 ```
 .
-├── Week 1/
-│   ├── C-CDA annotation and parsing files
-│   ├── FHIR resource examples
-│   ├── Mapping markdown files
-│   ├── Postman/HAPI FHIR related files
-│   └── Python parser scripts
+├
+│── C-CDA annotation and parsing files
+│── FHIR resource examples
+│── Mapping markdown files
+│── Postman/HAPI FHIR related files
+│── Python parser scripts
 │
 └── Week 2/
     ├── Screenshots/
